@@ -13,18 +13,21 @@ function Post({ width, check, postForm }) {
   const post = useRef(null);
 
   function screenshot() {
-    // domtoimage.toBlob(post.current).then((blob) => {
-    //   saveAs(blob, "my-post.png");
-    // });
     domtoimage
-      .toJpeg(post.current, { quality: 0.95 })
-      .then(function (dataUrl) {
-        var link = document.createElement("a");
-        link.download = "my-image-name.jpeg";
-        link.href = dataUrl;
-        link.click();
+      .toBlob(post.current)
+      .then((blob) => {
+        saveAs(blob, "my-post.png");
       })
       .catch((err) => console.log(err));
+    // domtoimage
+    //   .toJpeg(post.current, { quality: 0.95 })
+    //   .then(function (dataUrl) {
+    //     var link = document.createElement("a");
+    //     link.download = "my-image-name.jpeg";
+    //     link.href = dataUrl;
+    //     link.click();
+    //   })
+    //   .catch((err) => console.log(err));
   }
 
   const numbersConverter = (num) => {
