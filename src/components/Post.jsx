@@ -45,6 +45,8 @@ function Post({ width, check, postForm }) {
           width ? "w-11/12" : "w-1/2"
         } h-fit bg-post text-white rounded-lg flex justify-center pt-2 pb-1 max-md:w-nine-five max-lg:w-3/4`}
         ref={post}
+        initial={{ x: "-100vh" }}
+        animate={{ x: 0 }}
       >
         <article className="w-nine-five">
           <UpperPost check={check} postForm={postForm} />
