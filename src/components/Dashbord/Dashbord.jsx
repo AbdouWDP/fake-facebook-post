@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import DashbordForm from "./DashbordForm";
 
-function Dashbord({ setOpen, postForm, setPostForm }) {
-  const [check, setCheck] = useState(true);
-
+function Dashbord({ setOpen, postForm, setPostForm, check, setCheck }) {
   return (
     <>
       <section className="dashbord w-screen h-screen flex justify-center items-center">

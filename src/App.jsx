@@ -8,6 +8,7 @@ import ModeButton from "./components/ModeButton";
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [check, setCheck] = useState(true);
   const [postForm, setPostForm] = useState({
     username: "",
     time: "",
@@ -25,6 +26,8 @@ function App() {
           setOpen={setOpen}
           postForm={postForm}
           setPostForm={setPostForm}
+          check={check}
+          setCheck={setCheck}
         />
       ) : (
         <>
@@ -40,7 +43,7 @@ function App() {
             </button>
           </Tooltip>
           <main className="w-screen h-screen flex justify-center items-center flex-col gap-4">
-            <Post postForm={postForm} />
+            <Post postForm={postForm} check={check} />
           </main>
         </>
       )}
