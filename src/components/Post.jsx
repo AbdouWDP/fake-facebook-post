@@ -8,6 +8,7 @@ import HeartButton from "./HeartButton";
 import { Tooltip } from "@mui/material";
 import ReactButtons from "./ReactButtons";
 import { FiDownload } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 function Post({ width, check, postForm }) {
   const post = useRef(null);
@@ -39,7 +40,7 @@ function Post({ width, check, postForm }) {
 
   return (
     <>
-      <section
+      <motion.section
         className={`post ${
           width ? "w-11/12" : "w-1/2"
         } h-fit bg-post text-white rounded-lg flex justify-center pt-2 pb-1 max-md:w-nine-five max-lg:w-3/4`}
@@ -77,7 +78,7 @@ function Post({ width, check, postForm }) {
             <ReactButtons />
           </section>
         </article>
-      </section>
+      </motion.section>
       <Tooltip title="Download" followCursor>
         <button
           className={`download-post-button bg-post ${
