@@ -5,6 +5,9 @@ import domtoimage from "dom-to-image";
 import { Tooltip } from "@mui/material";
 import ReactButtons from "./ReactButtons";
 import { FiDownload } from "react-icons/fi";
+import LikeButton from "./Reactions/LikeButton";
+import HeartButton from "./Reactions/HeartButton";
+import HahaButton from "./Reactions/HahaButton";
 
 function Post({ width, check, postForm }) {
   const post = useRef(null);
@@ -48,8 +51,9 @@ function Post({ width, check, postForm }) {
             <div className="s flex justify-between items-center pb-2 pt-1">
               <div className="post-reactions flex items-center gap-1 cursor-pointer text-gray">
                 <div className="flex items-center">
-                  {postForm.reactions[0]}
-                  {postForm.reactions[1]}
+                  <LikeButton props={false} />
+                  <HeartButton props={false} />
+                  <HahaButton props={false} />
                 </div>
                 <div className="hover:underline select-none">
                   <p>
