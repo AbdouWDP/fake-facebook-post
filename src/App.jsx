@@ -7,7 +7,7 @@ import Dashbord from "./components/Dashbord/Dashbord";
 import ModeButton from "./components/ModeButton";
 
 function App() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [postForm, setPostForm] = useState({
     username: "",
     time: "",
