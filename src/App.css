@@ -33,7 +33,8 @@ body {
 }
 .dashbord-form input[type="text"],
 .dashbord-form input[type="number"],
-.post-profile-picture input {
+.post-profile-picture input,
+.submit-button {
   width: 100%;
   height: 3rem;
   border-radius: 0.5rem;
@@ -41,9 +42,11 @@ body {
   outline: none;
   padding: 0 40px 0 8px;
   color: #b0b3b8;
-  &:focus {
-    border-bottom: 2px solid #b0b3b8;
-  }
+}
+.dashbord-form input[type="text"]:focus,
+.dashbord-form input[type="number"]:focus,
+.post-profile-picture input:focus {
+  border-bottom: 2px solid #b0b3b8;
 }
 .dashbord-form span {
   transform: translateY(-50%);
@@ -56,4 +59,10 @@ input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
+}
+.submit-button {
+  background-color: #2073fa;
+}
+.submit-button:hover {
+  background-color: #0d52c0;
 }

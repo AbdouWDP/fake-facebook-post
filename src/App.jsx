@@ -17,8 +17,6 @@ function App() {
     profile_picture: "",
   });
 
-  console.log(postForm);
-
   return (
     <>
       {open ? (

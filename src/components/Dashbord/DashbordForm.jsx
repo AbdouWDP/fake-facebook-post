@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FiThumbsUp } from "react-icons/fi";
 import { IoReaderOutline } from "react-icons/io5";
@@ -7,16 +7,39 @@ import { IoChatbubbleOutline } from "react-icons/io5";
 import { FiImage } from "react-icons/fi";
 
 function DashbordForm({ check, setCheck, postForm, setPostForm }) {
+  const username = useRef(null);
+  const time = useRef(null);
+  const content = useRef(null);
+  const likes = useRef(null);
+  const comments = useRef(null);
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    setPostForm({
+      ...postForm,
+      username: username.current.value,
+      time: time.current.value,
+      content: content.current.value,
+      likes: likes.current.value,
+      comments: comments.current.value,
+    });
+    function cleanValue(el) {
+      el.current.value = "";
+    }
+    cleanValue(username);
+    cleanValue(time);
+    cleanValue(content);
+    cleanValue(likes);
+    cleanValue(comments);
+  };
+
   return (
-    <form className="dashbord-form w-nine-five h-nine-five flex flex-col gap-4">
+    <form
+      className="dashbord-form w-nine-five h-nine-five flex flex-col gap-4"
+      onSubmit={(e) => formHandler(e)}
+    >
       <div className="post-username relative">
-        <input
-          type="text"
-          placeholder="Username"
-          onKeyUp={(e) =>
-            setPostForm({ ...postForm, username: e.target.value })
-          }
-        />
+        <input type="text" placeholder="Username" ref={username} />
         <span className="absolute top-1/2 right-4 text-gray text-xl">
           <FaRegUser />
         </span>
@@ -58,7 +81,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
         <input
           type="text"
           placeholder="Time (Choose your time and then choose unit like: h, min and sec)"
-          onKeyUp={(e) => setPostForm({ ...postForm, time: e.target.value })}
+          ref={time}
         />
         <span className="absolute top-1/2 right-4 text-gray text-xl">
           <MdOutlineAccessTime />
@@ -73,7 +96,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
           placeholder="Content"
           className="resize-none"
           maxLength="1200"
-          onKeyUp={(e) => setPostForm({ ...postForm, content: e.target.value })}
+          ref={content}
         />
         <span className="absolute top-1/2 right-4 text-gray text-xl">
           <IoReaderOutline />
@@ -87,7 +110,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
           type="number"
           placeholder="Number of likes"
           maxLength={"9"}
-          onKeyUp={(e) => setPostForm({ ...postForm, likes: e.target.value })}
+          ref={likes}
         />
         <span className="absolute top-1/2 right-4 text-gray text-xl">
           <FiThumbsUp />
@@ -102,14 +125,16 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
           placeholder="Number of comments"
           pattern="\d*"
           maxLength="4"
-          onKeyUp={(e) =>
-            setPostForm({ ...postForm, comments: e.target.value })
-          }
+          ref={comments}
         />
         <span className="absolute top-1/2 right-4 text-gray text-xl">
           <IoChatbubbleOutline />
         </span>
       </div>
+
+      <button className="submit-button text-white text-xl font-semibold">
+        Submit
+      </button>
     </form>
   );
 }
