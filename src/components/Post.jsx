@@ -61,7 +61,9 @@ function Post({ width, check, postForm }) {
               </div>
               <div className="text-gray hover:underline cursor-pointer select-none">
                 <p>
-                  {postForm.comments === "" ? "100" : postForm.comments}{" "}
+                  {postForm.comments === ""
+                    ? "100"
+                    : numbersConverter(postForm.comments)}{" "}
                   comments
                 </p>
               </div>
