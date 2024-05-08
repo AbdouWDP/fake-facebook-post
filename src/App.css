@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #18191a;
+}
+.upper-post-options button:hover,
+.react-buttons button:hover,
+.download-post-button:hover,
+.close-dash-button:hover {
+  background-color: #3a3b3c;
+}
+.verified-icon {
+  color: #2073fa;
+}
+.bottom-post .s {
+  border-bottom: 1px solid #3a3b3c;
+}
+.react-buttons ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.comment-button span:first-child {
+  rotate: 270deg;
+}
+.create-new-post {
+  background-color: #2073fa;
+}
+.create-new-post:hover {
+  background-color: #0d52c0;
+}
+.dashbord-form input[type="text"],
+.dashbord-form input[type="number"],
+.post-profile-picture input {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: #3a3b3c;
+  outline: none;
+  padding: 0 40px 0 8px;
+  color: #b0b3b8;
+  &:focus {
+    border-bottom: 2px solid #b0b3b8;
+  }
+}
+.dashbord-form span {
+  transform: translateY(-50%);
+}
+
+.post-profile-picture div {
+  background-color: #3a3b3c;
+}
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
