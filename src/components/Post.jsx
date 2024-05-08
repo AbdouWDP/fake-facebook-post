@@ -16,12 +16,15 @@ function Post({ width, check, postForm }) {
     // domtoimage.toBlob(post.current).then((blob) => {
     //   saveAs(blob, "my-post.png");
     // });
-    domtoimage.toJpeg(post.current, { quality: 0.95 }).then(function (dataUrl) {
-      var link = document.createElement("a");
-      link.download = "my-image-name.jpeg";
-      link.href = dataUrl;
-      link.click();
-    });
+    domtoimage
+      .toJpeg(post.current, { quality: 0.95 })
+      .then(function (dataUrl) {
+        var link = document.createElement("a");
+        link.download = "my-image-name.jpeg";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => console.log(err));
   }
 
   const numbersConverter = (num) => {
