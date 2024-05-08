@@ -5,6 +5,13 @@ import { IoReaderOutline } from "react-icons/io5";
 import { MdOutlineAccessTime } from "react-icons/md";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { FiImage } from "react-icons/fi";
+import LikeButton from "../Reactions/LikeButton";
+import HeartButton from "../Reactions/HeartButton";
+import HahaButton from "../Reactions/HahaButton";
+import CareButton from "../Reactions/CareButton";
+import WowButton from "../Reactions/WowButton";
+import SadButton from "../Reactions/SadButton";
+import AngryButton from "../Reactions/AngryButton";
 
 function DashbordForm({ check, setCheck, postForm, setPostForm }) {
   const username = useRef(null);
@@ -130,6 +137,18 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
         <span className="absolute top-1/2 right-4 text-gray text-xl">
           <IoChatbubbleOutline />
         </span>
+      </div>
+
+      {/* ============================================================ */}
+
+      <div className="choose-reactions flex justify-between items-center">
+        <LikeButton props={true} />
+        <HeartButton props={true} />
+        <CareButton props={true} />
+        <HahaButton props={true} />
+        <WowButton props={true} />
+        <SadButton props={true} />
+        <AngryButton props={true} />
       </div>
 
       <button className="submit-button text-white text-xl font-semibold">
