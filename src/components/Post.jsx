@@ -1,10 +1,7 @@
 import React, { useRef } from "react";
 import { saveAs } from "file-saver";
 import UpperPost from "./UpperPost";
-import HahaButton from "./Reactions/HahaButton";
-import LikeButton from "./Reactions/LikeButton";
 import domtoimage from "dom-to-image";
-import HeartButton from "./Reactions/HeartButton";
 import { Tooltip } from "@mui/material";
 import ReactButtons from "./ReactButtons";
 import { FiDownload } from "react-icons/fi";
@@ -51,9 +48,8 @@ function Post({ width, check, postForm }) {
             <div className="s flex justify-between items-center pb-2 pt-1">
               <div className="post-reactions flex items-center gap-1 cursor-pointer text-gray">
                 <div className="flex items-center">
-                  <LikeButton props={false} />
-                  <HeartButton props={false} />
-                  <HahaButton props={false} />
+                  {postForm.reactions[0]}
+                  {postForm.reactions[1]}
                 </div>
                 <div className="hover:underline select-none">
                   <p>

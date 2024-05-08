@@ -20,6 +20,8 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
   const likes = useRef(null);
   const comments = useRef(null);
 
+  console.log(postForm);
+
   const formHandler = (e) => {
     e.preventDefault();
     setPostForm({
@@ -29,6 +31,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
       content: content.current.value,
       likes: likes.current.value,
       comments: comments.current.value,
+      reactions: [<LikeButton props={false} />, <HahaButton props={false} />],
     });
     function cleanValue(el) {
       el.current.value = "";
@@ -142,7 +145,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
       {/* ============================================================ */}
 
       <div className="choose-reactions flex justify-between items-center">
-        <LikeButton props={true} />
+        <LikeButton props={true} onClick={() => addReaction(<LikeButton />)} />
         <HeartButton props={true} />
         <CareButton props={true} />
         <HahaButton props={true} />

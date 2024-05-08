@@ -16,6 +16,7 @@ function App() {
     likes: "",
     comments: "",
     profile_picture: "",
+    reactions: [],
   });
 
   return (
