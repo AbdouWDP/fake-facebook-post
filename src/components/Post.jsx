@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { saveAs } from "file-saver";
 import UpperPost from "./UpperPost";
 import HahaButton from "./HahaButton";
@@ -10,8 +10,10 @@ import ReactButtons from "./ReactButtons";
 import { FiDownload } from "react-icons/fi";
 
 function Post({ width, check, postForm }) {
+  const post = useRef(null);
+
   function screenshot() {
-    domtoimage.toBlob(document.querySelector(".post")).then((blob) => {
+    domtoimage.toBlob(post.current).then((blob) => {
       saveAs(blob, "my-post.png");
     });
   }
@@ -35,6 +37,7 @@ function Post({ width, check, postForm }) {
         className={`post ${
           width ? "w-11/12" : "w-1/2"
         } h-fit bg-post text-white rounded-lg flex justify-center pt-2 pb-1 max-md:w-nine-five max-lg:w-3/4`}
+        ref={post}
       >
         <article className="w-nine-five">
           <UpperPost check={check} postForm={postForm} />
