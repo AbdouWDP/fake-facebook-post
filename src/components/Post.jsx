@@ -18,16 +18,7 @@ function Post({ width, check, postForm }) {
       .then((blob) => {
         saveAs(blob, "my-post.png");
       })
-      .catch((err) => console.log(err));
-    // domtoimage
-    //   .toJpeg(post.current, { quality: 0.95 })
-    //   .then(function (dataUrl) {
-    //     var link = document.createElement("a");
-    //     link.download = "my-image-name.jpeg";
-    //     link.href = dataUrl;
-    //     link.click();
-    //   })
-    //   .catch((err) => console.log(err));
+      .catch((err) => alert("Something went wrong, please try again later!"));
   }
 
   const numbersConverter = (num) => {
@@ -100,4 +91,4 @@ function Post({ width, check, postForm }) {
   );
 }
 
-export default React.memo(Post);
+export default Post;
