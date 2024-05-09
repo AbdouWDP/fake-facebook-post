@@ -51,9 +51,19 @@ function Post({ width, check, postForm }) {
             <div className="s flex justify-between items-center pb-2 pt-1">
               <div className="post-reactions flex items-center gap-1 cursor-pointer text-gray">
                 <div className="flex items-center">
-                  <LikeButton props={false} />
-                  <HeartButton props={false} />
-                  <HahaButton props={false} />
+                  {postForm.reactions > 0 ? (
+                    <>
+                      {postForm.reactions[0]}
+                      {postForm.reactions[1]}
+                      {postForm.reactions[2]}
+                    </>
+                  ) : (
+                    <>
+                      <LikeButton props={false} />
+                      <HeartButton props={false} />
+                      <HahaButton props={false} />
+                    </>
+                  )}
                 </div>
                 <div className="hover:underline select-none">
                   <p>

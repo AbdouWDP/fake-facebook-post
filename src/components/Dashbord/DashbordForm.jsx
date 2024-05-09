@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FiThumbsUp } from "react-icons/fi";
 import { IoReaderOutline } from "react-icons/io5";
@@ -20,8 +20,6 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
   const likes = useRef(null);
   const comments = useRef(null);
 
-  console.log(postForm);
-
   const formHandler = (e) => {
     e.preventDefault();
     setPostForm({
@@ -31,7 +29,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
       content: content.current.value,
       likes: likes.current.value,
       comments: comments.current.value,
-      reactions: [<LikeButton props={false} />, <HahaButton props={false} />],
+      reactions: [],
     });
     function cleanValue(el) {
       el.current.value = "";
@@ -41,6 +39,10 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
     cleanValue(content);
     cleanValue(likes);
     cleanValue(comments);
+  };
+
+  const addReaction = (e) => {
+    postForm.reactions.push(e);
   };
 
   return (
@@ -145,13 +147,27 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
       {/* ============================================================ */}
 
       <div className="choose-reactions flex justify-between items-center">
-        <LikeButton props={true} onClick={() => addReaction(<LikeButton />)} />
-        <HeartButton props={true} />
-        <CareButton props={true} />
-        <HahaButton props={true} />
-        <WowButton props={true} />
-        <SadButton props={true} />
-        <AngryButton props={true} />
+        <div onClick={(e) => addReaction(e)}>
+          <LikeButton props={true} />
+        </div>
+        <div onClick={(e) => addReaction(e)}>
+          <HeartButton props={true} />
+        </div>
+        <div onClick={(e) => addReaction(e)}>
+          <CareButton props={true} />
+        </div>
+        <div onClick={(e) => addReaction(e)}>
+          <HahaButton props={true} />
+        </div>
+        <div onClick={(e) => addReaction(e)}>
+          <WowButton props={true} />
+        </div>
+        <div onClick={(e) => addReaction(e)}>
+          <SadButton props={true} />
+        </div>
+        <div onClick={(e) => addReaction(e)}>
+          <AngryButton props={true} />
+        </div>
       </div>
 
       <button className="submit-button text-white text-xl font-semibold">
