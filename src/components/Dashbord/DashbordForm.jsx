@@ -146,7 +146,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
 
       {/* ============================================================ */}
 
-      <div className="choose-reactions flex justify-between items-center">
+      {/* <div className="choose-reactions flex justify-between items-center">
         <div onClick={(e) => addReaction(e)}>
           <LikeButton props={true} />
         </div>
@@ -168,7 +168,7 @@ function DashbordForm({ check, setCheck, postForm, setPostForm }) {
         <div onClick={(e) => addReaction(e)}>
           <AngryButton props={true} />
         </div>
-      </div>
+      </div> */}
 
       <button className="submit-button text-white text-xl font-semibold">
         Submit
